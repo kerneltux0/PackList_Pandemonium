@@ -21,7 +21,7 @@ class ListController < ApplicationController
   
   get '/list/:id' do
     if logged_in?
-      @list = params[:id]
+      @list = List.find(params[:id])
       erb :'/list/show'
     else
       redirect '/'
@@ -49,19 +49,15 @@ class ListController < ApplicationController
 
   post '/list/new' do
     @user = User.find(session[:user_id])
-    binding.pry
-    @user.lists << List.create(name: params[:name])
+    @list = List.create(name: params[:name])
+    @user.lists << @list
     @user.save
-    @list.user_id = @user.id
     params[:item].each do |name,enabled|
-      @list.items << Item.create(name: name)
+      @item = Item.create(name: name)
+      @list.items << @item
+      @item.save
     end
     @list.save
-    # if logged_in?
-    #   erb :'/list/new'
-    # else
-    #   redirect '/'
-    # end
 
   end
   
