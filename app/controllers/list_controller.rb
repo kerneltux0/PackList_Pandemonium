@@ -11,6 +11,7 @@ class ListController < ApplicationController
 
   get '/list/index' do
     if logged_in?
+      @lists = List.all
       erb :'/list/index'
     else
       redirect '/'
@@ -48,6 +49,11 @@ class ListController < ApplicationController
 
   post '/list/new' do
     binding.pry
+    @list = List.create(name: params[:name])
+    params[:item].each do |name,enabled|
+      @item = Item.create(name: name)
+      @list.items << @item
+    end
     # if logged_in?
     #   erb :'/list/new'
     # else
