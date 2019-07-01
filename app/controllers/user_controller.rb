@@ -22,7 +22,7 @@ class UserController < ApplicationController
 
   post '/signup' do
     if params[:username] != "" && params[:password] != ""
-      @user = User.new(username: params[:username], password_digest: params[:password])
+      @user = User.new(username: params[:username], password: params[:password])
       @user.save
       redirect '/login'
     else
