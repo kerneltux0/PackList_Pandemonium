@@ -1,8 +1,8 @@
 <h1><center>Showing list: <%= @list.name %></center></h1>
-<br>
-<br>
-<br>
 <a href='/home'>Return Home</a>
+<br>
+<br>
+<br>
 <ul>
   <%@list.items.each do |item|%>
     <li><%= item.name %></li>
