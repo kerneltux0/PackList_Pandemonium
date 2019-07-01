@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class ListController < ApplicationController
 
   get '/lists/new' do
     erb :'/lists/new'
