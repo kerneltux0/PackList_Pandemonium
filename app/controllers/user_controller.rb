@@ -1,22 +1,22 @@
 class UserController < ApplicationController
 
   get '/signup' do
-    erb :'/users/new'
+    erb :'/user/new'
 
   end
 
   get '/login' do
-    erb :'/users/login'
+    erb :'/user/login'
   
   end
 
   get '/home' do
-    erb :'/users/home'
+    erb :'/user/home'
 
   end
 
   get '/user/delete' do
-    erb :'/users/delete'
+    erb :'/user/delete'
 
   end
 
