@@ -1,1 +1,10 @@
-<h1><center>Showing list number: <%= @list %></center></h1>
+<h1><center>Showing list: <%= @list.name %></center></h1>
+<br>
+<br>
+<br>
+<a href='/home'>Return Home</a>
+<ul>
+  <%@list.items.each do |item|%>
+    <li><%= item.name %></li>
+  <%end%>
+</ul>
