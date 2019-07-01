@@ -47,11 +47,12 @@ class ListController < ApplicationController
   end
 
   post '/list/new' do
-    if logged_in?
-      erb :'/list/new'
-    else
-      redirect '/'
-    end
+    binding.pry
+    # if logged_in?
+    #   erb :'/list/new'
+    # else
+    #   redirect '/'
+    # end
 
   end
   
