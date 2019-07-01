@@ -1,32 +1,32 @@
 class ListController < ApplicationController
 
-  get '/lists/new' do
+  get '/list/new' do
     erb :'/list/new'
 
   end
 
-  get '/lists/index' do
+  get '/list/index' do
     erb :'/list/index'
 
   end
   
-  get '/lists/:id' do
+  get '/list/:id' do
     @list = params[:id]
     erb :'/list/show'
 
   end
 
-  get '/lists/:id/edit' do
+  get '/list/:id/edit' do
     erb :'/list/edit'
 
   end
 
-  get '/lists/:id/delete' do
+  get '/list/:id/delete' do
     erb :'/list/delete'
 
   end
 
-  post '/lists/new' do
+  post '/list/new' do
     binding.pry
 
   end
