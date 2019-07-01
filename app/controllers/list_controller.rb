@@ -48,12 +48,17 @@ class ListController < ApplicationController
   end
 
   post '/list/new' do
+    @user = User.find(session[:user_id])
     binding.pry
-    @list = List.create(name: params[:name])
+    @list = List.new(name: params[:name])
+    @user.lists << @list
+    @list.user_id = @user.id
     params[:item].each do |name,enabled|
-      @item = Item.create(name: name)
+      @item = Item.new(name: name)
+      @item.save
       @list.items << @item
     end
+    @list.save
     # if logged_in?
     #   erb :'/list/new'
     # else
