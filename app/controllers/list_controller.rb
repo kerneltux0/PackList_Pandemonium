@@ -40,6 +40,7 @@ class ListController < ApplicationController
 
   get '/list/:id/delete' do
     if logged_in?
+      @list = List.find(params[:id])
       erb :'/list/delete'
     else
       redirect '/'
