@@ -60,6 +60,8 @@ class UserController < ApplicationController
         if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           redirect '/home'
+        else
+          redirect '/'
         end
       else
         redirect '/login'
