@@ -83,6 +83,7 @@ class UserController < ApplicationController
       if params[:delete_acct] == "on"
         @user = User.find(session[:user_id])
         session.clear
+        @user.lists.destroy
         @user.destroy
         erb :'/user/delete_conf'
       else
