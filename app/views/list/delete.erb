@@ -4,11 +4,11 @@
 <br>
 <p><a href='/home'>Return Home</a></p>
 <br>
-<br>
-<br>
 <p><h3>This will delete this list & all items it contains.</h3></p>
 <form action='/list/<%= @list.id %>/delete' method='post'>
   <input type='hidden' id='hidden' name='_method' value='DELETE'>
   <input type='checkbox' id='verify' name='verify'><b>I understand this is will permanently delete the list & all of its items.</b><br>
+  <br>
+  <br>
   <input type='submit' value='Delete List!'>
 </form>
