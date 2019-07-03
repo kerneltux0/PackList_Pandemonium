@@ -79,13 +79,17 @@ class UserController < ApplicationController
   end
 
   delete '/user/delete' do
-    if params[:delete_acct] == "on"
-      @user = User.find(session[:user_id])
-      session.clear
-      @user.destroy
-      erb :'/user/delete_conf'
+    if logged_in?
+      if params[:delete_acct] == "on"
+        @user = User.find(session[:user_id])
+        session.clear
+        @user.destroy
+        erb :'/user/delete_conf'
+      else
+        erb :'/user/delete_incomp'
+      end
     else
-      erb :'/user/delete_incomp'
+      redirect '/'
     end
 
   end
