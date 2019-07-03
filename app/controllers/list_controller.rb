@@ -67,9 +67,13 @@ class ListController < ApplicationController
   end
 
   delete '/list/:id/delete' do
-    @list = List.find(params[:id])
-    @list.destroy
-    erb :'/list/delete_conf'
+    if params[:verify] == "on"
+      @list = List.find(params[:id])
+      @list.destroy
+      erb :'/list/delete_conf'
+    else
+      erb :'/list/delete_incomp'
+    end
 
   end
   
