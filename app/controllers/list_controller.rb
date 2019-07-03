@@ -67,12 +67,16 @@ class ListController < ApplicationController
   end
 
   delete '/list/:id/delete' do
-    if params[:verify] == "on"
-      @list = List.find(params[:id])
-      @list.destroy
-      erb :'/list/delete_conf'
+    if logged_in?
+      if params[:verify] == "on"
+        @list = List.find(params[:id])
+        @list.destroy
+        erb :'/list/delete_conf'
+      else
+        erb :'/list/delete_incomp'
+      end
     else
-      erb :'/list/delete_incomp'
+      redirect '/'
     end
 
   end
