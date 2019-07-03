@@ -6,7 +6,10 @@
 <a href='/home'>Return Home</a><br>
 <br>
 <br>
-<form action='' method=''>
-  <p><input type='checkbox' name='delete_acct'> I understand that this will permanently delete all my information & will be unrecoverable.</p>
-  <p><input type='submit' value='DELETE'></p>
+<form action='/user/delete' method='post'>
+  <input type='hidden' id='hidden' name='_method' value='DELETE'>
+  <input type='checkbox' name='delete_acct'><b>I understand that this will permanently delete all my information & will be unrecoverable.<b><br>
+  <br>
+  <br>
+  <input type='submit' value='Delete My Account!'>
 </form>
