@@ -31,6 +31,8 @@ class ListController < ApplicationController
 
   get '/list/:id/edit' do
     if logged_in?
+      @user = User.find(session[:user_id])
+      @list = List.find(params[:id])
       erb :'/list/edit'
     else
       redirect '/'
