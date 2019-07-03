@@ -5,8 +5,5 @@
 <form action='/list/new' method='post'>
   <input type='text' id='list_name' name='name' placeholder='List Name'><br>
   <br>
-  <input type='checkbox' name='item[maps]'>Maps.<br>
-  <input type='checkbox' name='item[compass]'>Compass.<br>
-  <input type='checkbox' name='item[extra batteries]'>Extra batteries.<br>
-  <input type='submit' value='Create List'>
+  <%=erb :'/base_list'%>
 </form>
