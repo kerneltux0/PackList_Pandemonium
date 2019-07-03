@@ -60,6 +60,7 @@ class ListController < ApplicationController
         @item.save
       end
       @list.save
+      redirect '/home'
     else
       redirect '/'
     end
