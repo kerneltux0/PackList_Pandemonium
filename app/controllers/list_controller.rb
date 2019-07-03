@@ -16,7 +16,8 @@ class ListController < ApplicationController
 
   get '/list/index' do
     if logged_in?
-      @lists = List.all
+      @user = User.find(session[:user_id])
+      @lists = @user.lists
       erb :'/list/index'
     else
       redirect '/'
@@ -27,7 +28,12 @@ class ListController < ApplicationController
   get '/list/:id' do
     if logged_in?
       @list = List.find(params[:id])
-      erb :'/list/show'
+      @user = User.find(session[:user_id])
+      if @list.user_id == @user.id
+        erb :'/list/show'
+      else
+        redirect '/home'
+      end
     else
       redirect '/'
     end
@@ -37,7 +43,12 @@ class ListController < ApplicationController
   get '/list/:id/edit' do
     if logged_in?
       @list = List.find(params[:id])
-      erb :'/list/edit'
+      @user = User.find(session[:user_id])
+      if @list.user_id == @user.id
+        erb :'/list/edit'
+      else
+        redirect '/home'
+      end
     else
       redirect '/'
     end
@@ -47,7 +58,12 @@ class ListController < ApplicationController
   get '/list/:id/delete' do
     if logged_in?
       @list = List.find(params[:id])
-      erb :'/list/delete'
+      @user = User.find(session[:user_id])
+      if @list.user_id == @user.id
+        erb :'/list/delete'
+      else
+        redirect '/home'
+      end
     else
       redirect '/'
     end
@@ -75,12 +91,18 @@ class ListController < ApplicationController
 
   delete '/list/:id/delete' do
     if logged_in?
-      if params[:verify] == "on"
-        @list = List.find(params[:id])
-        @list.destroy
-        erb :'/list/delete_conf'
+      @list = List.find(params[:id])
+      @user = User.find(session[:user_id])
+      if @list.user_id == @user.id
+        if params[:verify] == "on"
+          @list = List.find(params[:id])
+          @list.destroy
+          erb :'/list/delete_conf'
+        else
+          erb :'/list/delete_incomp'
+        end
       else
-        erb :'/list/delete_incomp'
+        redirect '/home'
       end
     else
       redirect '/'
