@@ -48,16 +48,25 @@ class ListController < ApplicationController
   end
 
   post '/list/new' do
-    @user = User.find(session[:user_id])
-    @list = List.create(name: params[:name])
-    @user.lists << @list
-    @user.save
-    params[:item].each do |name,enabled|
-      @item = Item.create(name: name)
-      @list.items << @item
-      @item.save
+    if logged_in?
+      @user = User.find(session[:user_id])
+      @list = List.create(name: params[:name])
+      @user.lists << @list
+      @user.save
+      params[:item].each do |name,enabled|
+        @item = Item.create(name: name)
+        @list.items << @item
+        @item.save
+      end
+      @list.save
+    else
+      redirect '/'
     end
-    @list.save
+
+  end
+
+  delete '/list/:id/delete' do
+    @list = List.find()
 
   end
   
