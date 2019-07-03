@@ -2,6 +2,11 @@ class ListController < ApplicationController
 
   get '/list/new' do
     if logged_in?
+      @general = BaseList.general
+      @electronics = BaseList.electronics
+      @camping = BaseList.camping
+      @toiletries = BaseList.toiletries
+      @clothing = BaseList.clothing
       erb :'/list/new'
     else
       redirect '/'
@@ -33,6 +38,7 @@ class ListController < ApplicationController
     if logged_in?
       @user = User.find(session[:user_id])
       @list = List.find(params[:id])
+      @items = @list.items
       erb :'/list/edit'
     else
       redirect '/'
