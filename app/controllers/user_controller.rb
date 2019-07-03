@@ -20,6 +20,7 @@ class UserController < ApplicationController
 
   get '/home' do
     if logged_in?
+      @user = User.find(session[:user_id])
       erb :'/user/home'
     else
       redirect '/'
@@ -29,6 +30,7 @@ class UserController < ApplicationController
 
   get '/user/delete' do
     if logged_in?
+      @user = User.find(session[:user_id])
       erb :'/user/delete'
     else
       redirect '/'
@@ -71,6 +73,18 @@ class UserController < ApplicationController
   get '/logout' do
     session.clear
     redirect '/'
+
+  end
+
+  delete '/user/delete' do
+    if params[:delete_acct] == "on"
+      @user = User.find(session[:user_id])
+      session.clear
+      @user.destroy
+      erb :'/user/delete_conf'
+    else
+      erb :'/user/delete_incomp'
+    end
 
   end
 
