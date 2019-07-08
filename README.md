@@ -17,3 +17,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/kernel
 ## Code of Conduct
 
 Everyone interacting in the PackList Pandemonium project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/kerneltux0/PackList_Pandemonium/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+PackList Pandemonium is licensed under the GNU Public License Version 3.  Terms & conditions are detailed in the license.txt file located in this repository.  For more information on the license itself, please visit: https://www.gnu.org/licenses/
