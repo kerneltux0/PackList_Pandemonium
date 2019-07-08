@@ -71,10 +71,13 @@ class ListController < ApplicationController
     if logged_in?
       @user = User.find(session[:user_id])
       @list = List.find(params[:id])
-      if !params[:item].empty?
-        @list.items << Item.create(name: params[:item])
+      @list.items.clear
+      params[:item].each do |name,enabled|
+        @item = Item.create(name: name)
+        @list.items << @item
+        @item.save
       end
-      @list.update
+      @list.save
       redirect "/list/#{@list.id}"
     else
       redirect '/'
