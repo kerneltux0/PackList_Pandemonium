@@ -47,9 +47,12 @@ class ListController < ApplicationController
       @camping = BaseList.camping
       @toiletries = BaseList.toiletries
       @clothing = BaseList.clothing
-      
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
+      @lists = []
+      @list.items.each do |item_obj|
+        @lists << item_obj.name
+      end
       if @list.user_id == @user.id
         erb :'/list/edit'
       else
