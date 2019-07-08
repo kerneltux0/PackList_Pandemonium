@@ -4,8 +4,10 @@
 <a href='/home'>Return Home</a>
 <br>
 <br>
+<p>================</p>
 <ul>
   <% @lists.each do |item| %>
     <li><a href='/list/<%=item.id%>'><%= item.name %></a></li>
+    <br>
   <%end%>
 </ul>
