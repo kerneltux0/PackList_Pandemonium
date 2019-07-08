@@ -64,6 +64,11 @@ class ListController < ApplicationController
 
   end
 
+  patch '/list/:id/edit' do
+    binding.pry
+
+  end
+
   get '/list/:id/delete' do
     if logged_in?
       @list = List.find(params[:id])
