@@ -55,7 +55,7 @@ class ListController < ApplicationController
       @list.items.each do |item_obj|
         @lists << item_obj.name
       end
-      
+
       if @list.user_id == @user.id
         erb :'/list/edit'
       else
@@ -68,7 +68,17 @@ class ListController < ApplicationController
   end
 
   patch '/list/:id/edit' do
-    binding.pry
+    if logged_in?
+      @user = User.find(session[:user_id])
+      @list = List.find(params[:id])
+      if !params[:item].empty?
+        @list.items << Item.create(name: params[:item])
+      end
+      @list.update
+      redirect "/list/#{@list.id}"
+    else
+      redirect '/'
+    end
 
   end
 
