@@ -68,12 +68,11 @@ class ListController < ApplicationController
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
 
-      @lists = []
-      @list.items.each do |item_obj|
-        @lists << item_obj.name
-      end
-
       if @list.user_id == @user.id
+        @lists = []
+        @list.items.each do |item_obj|
+          @lists << item_obj.name
+        end
         erb :'/list/edit'
       else
         redirect '/home'
@@ -88,14 +87,20 @@ class ListController < ApplicationController
     if logged_in?
       @user = User.find(session[:user_id])
       @list = List.find(params[:id])
-      @list.items.clear
-      params[:item].each do |name,enabled|
-        @item = Item.create(name: name)
-        @list.items << @item
-        @item.save
+
+      if @list.user_id == @user.id
+        @list.items.clear
+        params[:item].each do |name,enabled|
+          @item = Item.create(name: name)
+          @list.items << @item
+          @item.save
+        end
+        @list.save
+        redirect "/list/#{@list.id}"
+      else
+        redirect '/home'
       end
-      @list.save
-      redirect "/list/#{@list.id}"
+
     else
       redirect '/'
     end
@@ -106,11 +111,13 @@ class ListController < ApplicationController
     if logged_in?
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
+
       if @list.user_id == @user.id
         erb :'/list/delete'
       else
         redirect '/home'
       end
+
     else
       redirect '/'
     end
@@ -140,6 +147,7 @@ class ListController < ApplicationController
     if logged_in?
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
+
       if @list.user_id == @user.id
         if params[:verify] == "on"
           @list = List.find(params[:id])
@@ -151,6 +159,7 @@ class ListController < ApplicationController
       else
         redirect '/home'
       end
+      
     else
       redirect '/'
     end
