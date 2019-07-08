@@ -42,6 +42,12 @@ class ListController < ApplicationController
 
   get '/list/:id/edit' do
     if logged_in?
+      @general = BaseList.general
+      @electronics = BaseList.electronics
+      @camping = BaseList.camping
+      @toiletries = BaseList.toiletries
+      @clothing = BaseList.clothing
+      
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
       if @list.user_id == @user.id
