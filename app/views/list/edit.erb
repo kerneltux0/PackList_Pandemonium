@@ -11,35 +11,35 @@
   <p>========General========</p>
   <ul>
     <%@general.each do |item|%>
-      <li><input type='checkbox' name='item[<%=item%>]'><%=item.gsub(/_/,' ').capitalize!%></li>
+      <li><input type='checkbox' name='item[<%=item%>]' <%='checked' if @lists.include?(item)%>> <%=item.gsub(/_/,' ').capitalize!%></li>
     <%end%>
   </ul>
   <br>
   <p>========Electronics========</p>
   <ul>
     <%@electronics.each do |item|%>
-      <li><input type='checkbox' name='item[<%=item%>]'><%=item.gsub(/_/,' ').capitalize!%></li>
+      <li><input type='checkbox' name='item[<%=item%>]'<%='checked' if @lists.include?(item)%>><%=item.gsub(/_/,' ').capitalize!%></li>
     <%end%>
   </ul>
   <br>
   <p>========Camping========</p>
   <ul>
     <%@camping.each do |item|%>
-      <li><input type='checkbox' name='item[<%=item%>]'><%=item.gsub(/_/,' ').capitalize!%></li>
+      <li><input type='checkbox' name='item[<%=item%>]'<%='checked' if @lists.include?(item)%>><%=item.gsub(/_/,' ').capitalize!%></li>
     <%end%>
   </ul>
   <br>
   <p>========Toiletries========</p>
   <ul>
     <%@toiletries.each do |item|%>
-      <li><input type='checkbox' name='item[<%=item%>]'><%=item.gsub(/_/,' ').capitalize!%></li>
+      <li><input type='checkbox' name='item[<%=item%>]'<%='checked' if @lists.include?(item)%>><%=item.gsub(/_/,' ').capitalize!%></li>
     <%end%>
   </ul>
   <br>
   <p>========Clothing========</p>
   <ul>
     <%@clothing.each do |item|%>
-      <li><input type='checkbox' name='item[<%=item%>]'><%=item.gsub(/_/,' ').capitalize!%></li>
+      <li><input type='checkbox' name='item[<%=item%>]'<%='checked' if @lists.include?(item)%>><%=item.gsub(/_/,' ').capitalize!%></li>
     <%end%>
   </ul>
   <br>
