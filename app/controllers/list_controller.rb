@@ -28,7 +28,6 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
 
   get '/list/index' do
@@ -39,18 +38,19 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
   
   get '/list/:id' do
     if logged_in?
       @list = List.find(params[:id])
       @user = User.find(session[:user_id])
+
       if @list.user_id == @user.id
         erb :'/list/show'
       else
         redirect '/home'
       end
+
     else
       redirect '/'
     end
@@ -77,10 +77,10 @@ class ListController < ApplicationController
       else
         redirect '/home'
       end
+
     else
       redirect '/'
     end
-
   end
 
   patch '/list/:id/edit' do
@@ -104,7 +104,6 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
 
   get '/list/:id/delete' do
@@ -121,7 +120,6 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
 
   post '/list/new' do
@@ -140,7 +138,6 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
 
   delete '/list/:id/delete' do
@@ -163,7 +160,6 @@ class ListController < ApplicationController
     else
       redirect '/'
     end
-
   end
   
 end
