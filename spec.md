@@ -14,7 +14,7 @@ Specs:
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code--description details what the app is used for, and what information is req'd for a user account...install directions provide step-by-step process for loading all dependencies, starting local server, and opening via browser...contributor's guide provides the URL and points to the code of conduct...added a short description on the license at the end, I also added a short license notification at the beginning of each file & the full text of the GPL V3
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits--127 commits, most are 6 lines of code or less
+- [x] Your commit messages are meaningful--each message is specific to the file I was working on
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message--other than adding license notices, every commit & message relates to a specific file
