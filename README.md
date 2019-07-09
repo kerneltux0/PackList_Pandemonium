@@ -20,4 +20,4 @@ Everyone interacting in the PackList Pandemonium project’s codebases, issue tr
 
 ## License
 
-PackList Pandemonium is licensed under the GNU Public License Version 3.  Terms & conditions are detailed in the license.txt file located in this repository.  For more information on the license itself, please visit: https://www.gnu.org/licenses/
+PackList Pandemonium is licensed under the General Public License Version 3.  Terms & conditions are detailed in the license.txt file located in this repository.  For more information on the license itself, please visit: https://www.gnu.org/licenses/
