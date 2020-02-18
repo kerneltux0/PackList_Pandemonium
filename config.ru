@@ -21,6 +21,12 @@ if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
 
+require 'rubygems'
+
+require 'bundler'
+
+Bundler.require
+
 use Rack::MethodOverride
 use BaseList
 use ListController
