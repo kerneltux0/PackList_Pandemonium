@@ -15,15 +15,18 @@
 # You should have received a copy of the GNU General Public License
 # along with PackList Pandemonium.  If not, see <https://www.gnu.org/licenses/>.
 
-ENV['SINATRA_ENV'] ||= "development"
-
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
-ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-)
+configure :development do
+
+  ENV['SINATRA_ENV'] ||= "development"
+
+  ActiveRecord::Base.establish_connection(
+    :adapter => "sqlite3",
+    :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+  )
+end
 
 configure :production do
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
@@ -35,7 +38,7 @@ configure :production do
     :password => db.password,
     :database => db.path[1..-1],
     :encoding => 'utf8'
-    )
+  )
 end
 
 require './app/controllers/application_controller'
