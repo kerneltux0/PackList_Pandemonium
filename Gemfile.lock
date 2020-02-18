@@ -89,6 +89,7 @@ DEPENDENCIES
   database_cleaner
   pg (~> 0.15)
   pry
+  rack
   rack-test
   rake
   require_all
