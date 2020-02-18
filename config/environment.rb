@@ -41,5 +41,5 @@ configure :production do
   )
 end
 
-require './app/controllers/application_controller'
+require './app/controllers/application_controller.rb'
 require_all 'app'
