@@ -12,15 +12,16 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'pg', '~>1.2.2'
+gem 'activerecord-postgresql-adapter'
 
 group :development do
   gem 'sqlite3', '~> 1.3.6'
 end
 
-group :production do
-  gem 'pg', '~>1.2.2'
-  gem 'activerecord-postgresql-adapter'
-end
+# group :production do
+#   gem 'pg', '~>1.2.2'
+#   gem 'activerecord-postgresql-adapter'
+# end
 
 group :test do
   gem 'rspec'
