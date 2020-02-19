@@ -7,18 +7,22 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rack'
 gem 'rake'
 gem 'require_all'
-gem 'pg', '~>0.15'
 gem 'thin'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
 group :development do
-  gem 'rerun'
   gem 'sqlite3', '~>1.3.6'
 end
 
+group :production do
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
+end
+
 group :test do
+  gem 'rspec'
   gem 'rack-test'
   gem 'database_cleaner'
 end

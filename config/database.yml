@@ -1,14 +1,15 @@
 development:
   adapter: sqlite3
-  database: db/database.sqlite
-  host: localhost
-  pool: 5
-  timeout: 5000
+  database: db/development.db
+
+test:
+  adapter: sqlite3
+  database: db/test.db
 
 production:
-  url: <%=ENV['DATABASE_URL'] %>
   adapter: postgresql
-  database: mydb
+  database: packlist-pandemonium
+  url: <%= ENV['DATABASE_URL'] %>
   host: localhost
   pool: 5
   timeout: 5000
