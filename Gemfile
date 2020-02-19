@@ -11,14 +11,14 @@ gem 'thin'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'pg', '~>1.2.2'
+gem 'pg'
 
 group :development do
   gem 'sqlite3', '~>1.3.6'
 end
 
 group :production do
-  gem 'pg', '~>1.2.2'
+  gem 'pg'
   gem 'activerecord-postgresql-adapter'
 end
 
