@@ -95,7 +95,7 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   bcrypt
   database_cleaner
-  pg
+  pg (~> 1.2.2)
   pry
   rack
   rack-test
