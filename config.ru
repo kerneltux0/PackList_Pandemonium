@@ -15,17 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with PackList Pandemonium.  If not, see <https://www.gnu.org/licenses/>.
 
-require './config/environment.rb'
+require './config/environment'
 
 if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
-
-require 'rubygems'
-
-require 'bundler'
-
-Bundler.require
 
 use Rack::MethodOverride
 use BaseList
