@@ -35,14 +35,8 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-<<<<<<< HEAD
     rack (2.2.2)
     rack-protection (2.0.8.1)
-=======
-    public_suffix (3.1.1)
-    rack (2.0.8)
-    rack-protection (2.0.5)
->>>>>>> 76afdfb28fc280f0ca8431747803fc25f290eac9
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
