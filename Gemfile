@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'pg', '~>1.2.2'
+gem 'pg', '~>0.15'
 gem 'activerecord-postgresql-adapter'
 
 group :development do
