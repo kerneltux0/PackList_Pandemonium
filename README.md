@@ -4,7 +4,7 @@ This provides a way to create packing lists for a variety of situations, from a 
 
 ## Usage
 
-This app is hosted on Heroku at: (insert url from Heroku here)
+This app is hosted on Heroku at: https://packlist-pandemonium.herokuapp.com
 
 After going to that URL, you should be directed to a welcome screen with options to sign up & login.  After creating an account & logging in, you'll be presented with links to create a new list, see all of the lists that you've created, and delete your account.
 
@@ -20,7 +20,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/kernel
 
 2) Type "bundle install" (no quotes) to install all dependencies.
 
-3) Type "rerun rackup" (again, no qoutes), open your web-browser of choice and enter the address that it's listening on (should be "localhost:", followed by four numbers).
+3) Type "shotgun" (again, no qoutes), open your web-browser of choice and enter the address that it's listening on (should be "localhost:", followed by four numbers).
 
 ## Code of Conduct
 
